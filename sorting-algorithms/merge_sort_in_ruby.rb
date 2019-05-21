@@ -30,14 +30,14 @@ def merge_two_sorted_arrs_into_one_sorted_arr(arr1, arr2)
 end
 
 # sample arr
-ARR_SIZE = 1000
-arr = ARR_SIZE.times.map { rand(10000) }
+ARR_SIZE = 999
+sample_arr = ARR_SIZE.times.map { rand(100000) }
 
 # does it work?
-puts "dat merge sort worked? #{dat_merge_sort(arr) == arr.sort}"
+puts "dat merge sort worked? #{dat_merge_sort(sample_arr) == sample_arr.sort}"
 
 # how long does it take?
 beginning_time = Time.now
-dat_merge_sort(arr)
+dat_merge_sort(sample_arr)
 end_time = Time.now
 puts "Time elapsed for array of size #{ARR_SIZE} - #{(end_time - beginning_time)*1000} milliseconds"
