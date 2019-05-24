@@ -1,5 +1,3 @@
-(declare merge-two-sorted-colls-into-one-sorted-coll)
-
 (defn dat-merge-sort
   [coll]
   (if (< (count coll) 2)
