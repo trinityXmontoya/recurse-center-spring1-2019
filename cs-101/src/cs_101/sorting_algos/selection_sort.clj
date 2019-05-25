@@ -1,7 +1,7 @@
 (ns cs-101.sorting-algos.selection-sort
   (:require [cs-101.sorting-algos.utils :refer :all]))
 
-(defn find-and-swap-largest-el
+(defn -find-and-swap-largest-el
   [coll i]
   (let [coll-to-check (take i coll)
         largest-el (apply max coll-to-check)
@@ -15,7 +15,7 @@
           largest-el-idx
           last-el)))))
 
-(defn dat-selection-sort
+(defn -selection-sort
   [coll]
   (check-coll-size
     coll
@@ -26,4 +26,17 @@
           coll
           (recur
             (dec i)
-            (find-and-swap-largest-el coll i)))))))
+            (-find-and-swap-largest-el coll i)))))))
+
+
+(defn dat-selection-sort
+  "Sorts values using the selection sort algorithm.
+  Steps:
+  |---------------+
+  | [1 4 5 3 2]   |
+  | [1 4 2 3 5]   |
+  | [1 3 2 4 5]   |
+  | [1 2 3 4 5]   |
+  |---------------+"
+  [coll]
+  (-selection-sort coll))

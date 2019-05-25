@@ -18,7 +18,7 @@
               coll)))))))
 
 
-(defn dat-bubble-sort
+(defn -bubble-sort
   [coll]
   (check-coll-size
     coll
@@ -28,3 +28,17 @@
         (if (= i 0)
           coll
           (recur (dec i) (-bubble-step coll)))))))
+
+(defn dat-bubble-sort
+  "Sorts values using the bubble sort algorithm.
+  Steps:
+  |---------------+
+  | [1 4 5 3 2]   |
+  | [1 4 3 5 2]   |
+  | [1 3 4 5 2]   |
+  | [1 3 4 2 5]   |
+  | [1 3 2 4 5]   |
+  | [1 2 3 4 5]   |
+  |---------------+"
+  [coll]
+  (-bubble-sort coll))
