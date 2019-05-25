@@ -5,4 +5,4 @@
 
 (deftest bubble-sort
   (testing "dat bubble sort works?"
-    (is (= (dat-bubble-sort sample-coll) (sort sample-coll)))))
+    (is (= (dat-bubble-sort (vec sample-coll)) (sort sample-coll)))))

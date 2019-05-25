@@ -1,17 +1,28 @@
 (ns cs-101.sorting-algos.bubble_sort)
 
+
+(defn -bubble-step
+  [coll]
+  (loop [j 0
+         coll coll]
+    (if (>= j (- (count coll) 1))
+      coll
+      (let [next-j (inc j)]
+        (recur
+          next-j
+          (let [current-el (nth coll j)
+                next-el (nth coll next-j)]
+            ;(println coll j current-el next-el)
+            (if (> current-el next-el)
+              (assoc (assoc coll j next-el) next-j current-el)
+              coll))))))
+  )
+
+
 (defn dat-bubble-sort
   [coll]
-  (loop [i 0
+  (loop [j 0
          coll coll]
-    (if (>= i (- (count coll) 1))
+    (if (>= j (- (count coll) 1))
       coll
-      (let [next-i (inc i)]
-        (recur
-          next-i
-          (let [current-el (nth coll i)
-                next-el (nth coll next-i)]
-            (println coll i current-el next-el)
-            (if (> current-el next-el)
-              (assoc (assoc coll i next-el) next-i current-el)
-              coll)))))))
+      (recur (inc j) (-bubble-step coll)))))
