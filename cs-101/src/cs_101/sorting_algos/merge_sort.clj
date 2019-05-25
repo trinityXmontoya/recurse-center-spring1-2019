@@ -9,7 +9,7 @@
              left (dat-merge-sort left)
              right (dat-merge-sort right)]
         (cond
-          (empty? left)									 (concat final-coll right)
-          (empty? right) 								 (concat final-coll left)
+          (empty? left)									 								(concat final-coll right)
+          (empty? right) 								 							(concat final-coll left)
           (< (first left) (first right)) (recur (conj final-coll (first left)) (rest left) right)
-          :else													 (recur (conj final-coll (first right)) left (rest right)))))))
+          :else													 											 (recur (conj final-coll (first right)) left (rest right)))))))
