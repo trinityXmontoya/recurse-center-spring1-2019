@@ -1,4 +1,5 @@
-(ns cs-101.sicp.core)
+(ns cs-101.sicp.core
+  (:require [clojure.math.numeric-tower :as math]))
 
 (defn exercise-1-3
   "Define a procedure that takes three numbers as arguments and returns the sum of the squares of the two larger numbers."
@@ -79,4 +80,19 @@
       (if (= i 0)
         x
         (recur (dec i) (-build-row x))))))
+
+(defn exercise-1-13
+  "Prove that Fib(n) is the closest integer to ϕn/√5, where ϕ = (1 + √5)/2. Hint: Let ψ = (1 - √5)/2.
+   Use induction and the definition of the Fibonacci numbers (see section 1.2.2) to prove that Fib(n) = (ϕn - ψn)/√5"
+  [n]
+  (int
+  (/ (- (math/expt (/ (+ 1
+                         (math/sqrt 5))
+                      2)
+                   n)
+        (math/expt (/ (- 1
+                         (math/sqrt 5))
+                      2)
+                   n))
+    (math/sqrt 5))))
 

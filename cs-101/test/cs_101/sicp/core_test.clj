@@ -55,3 +55,15 @@
                  4 `(1 4 6 4 1)
                  5 `(1 5 10 10 5 1)
                  6 `(1 6 15 20 15 6 1))))
+
+(deftest exercise-1-13-test
+  (testing "exercise-1-13-test"
+    (are [n res] (= res (exercise-1-13 n))
+                 0 0
+                 1 1
+                 2 1
+                 3 2
+                 4 3
+                 5 5
+                 6 8)))
+
