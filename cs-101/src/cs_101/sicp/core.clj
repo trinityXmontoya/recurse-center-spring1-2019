@@ -41,15 +41,26 @@
   ((fn f [n]
      (if (< n 3)
        n
-       (loop
-         [a (f (- 1 n))
-          b (f (- 2 n))
-          c (f (- 3 n))
-          i n]
+       (loop [i n
+              a (f (- 1 n))
+              b (f (- 2 n))
+              c (f (- 3 n))]
         (recur
+          (dec i)
           (+ a (* 2 b) (* 3 c))
           b
-          c
-          (dec i))
-      ))
-  )))
+          c))))))
+
+;; trying out scheme's block structure
+(defn exercise-1-12
+  "Pascal's triangle"
+  [n]
+  (letfn [(pad-both-ends [coll] (concat [1] coll [1]))
+          (prev-row [row] (map #(apply + %) (partition 2 1 row)))]
+    (if (= n 0)
+      [1]
+      (loop [i n
+             x []]
+        (if (= i 0)
+          x
+          (recur (dec i) (pad-both-ends (prev-row x))))))))
