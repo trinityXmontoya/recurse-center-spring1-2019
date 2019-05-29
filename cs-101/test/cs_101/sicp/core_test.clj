@@ -6,13 +6,21 @@
   (testing "exercise-1-3"
     (is (= 13 (exercise-1-3 1 2 3)))))
 
-(deftest dat-factorial-test
-  (testing "dat-factorial"
-    (are [n res] (= res (dat-factorial n))
+(deftest dat-factorial-0-test
+  (testing "dat-factorial-0"
+    (are [n res] (= res (dat-factorial-0 n))
                     6 720
                     1 1
                     0 1
                     10 3628800)))
+
+(deftest dat-factorial-1-test
+  (testing "dat-factorial-1"
+    (are [n res] (= res (dat-factorial-1 n))
+                 6 720
+                 1 1
+                 0 1
+                 10 3628800)))
 
 (deftest exercise-1-11-recursive-test
   (testing "exercise-1-11-recursive-test"
