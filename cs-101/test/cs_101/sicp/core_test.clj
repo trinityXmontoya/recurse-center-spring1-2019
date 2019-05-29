@@ -28,15 +28,26 @@
                  3 4
                  5 25)))
 
-(deftest exercise-1-11-recursive-test
-  (testing "exercise-1-11-recursive-test"
-    (are [n res] (= res (exercise-1-11-recursive n))
-                 3 4
-                 5 25)))
+;(deftest exercise-1-11-iterative-test
+;  (testing "exercise-1-11-iterative-test"
+;    (are [n res] (= res (exercise-1-11-iterative n))
+;                 3 4
+;                 5 25)))
 
 (deftest exercise-1-12-test
-  (testing "exercise-1-12t"
+  (testing "exercise-1-12-test"
     (are [n res] (= res (exercise-1-12 n))
+                 0 `(1)
+                 1 `(1 1)
+                 2 `(1 2 1)
+                 3 `(1 3 3 1)
+                 4 `(1 4 6 4 1)
+                 5 `(1 5 10 10 5 1)
+                 6 `(1 6 15 20 15 6 1))))
+
+(deftest exercise-1-12-block-structure-test
+  (testing "exercise-1-12-block-structure-test"
+    (are [n res] (= res (exercise-1-12-block-structure n))
                  0 `(1)
                  1 `(1 1)
                  2 `(1 2 1)

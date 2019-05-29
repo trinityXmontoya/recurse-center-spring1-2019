@@ -49,11 +49,12 @@
           (dec i)
           (+ a (* 2 b) (* 3 c))
           b
-          c))))))
+          c))))
+    x))
 
 ;; trying out scheme's block structure
-(defn exercise-1-12
-  "Pascal's triangle"
+(defn exercise-1-12-block-structure
+  "get nth row of Pascal's triangle by means of a recursive process"
   [n]
   (letfn [(pad-both-ends [coll] (concat [1] coll [1]))
           (prev-row [row] (map #(apply + %) (partition 2 1 row)))]
@@ -64,3 +65,18 @@
         (if (= i 0)
           x
           (recur (dec i) (pad-both-ends (prev-row x))))))))
+
+(defn -pad-both-ends [coll] (concat [1] coll [1]))
+(defn -prev-row [row] (map #(apply + %) (partition 2 1 row)))
+(def -build-row (comp -pad-both-ends -prev-row))
+(defn exercise-1-12
+  "get nth row of Pascal's triangle by means of a recursive process"
+  [n]
+  (if (= n 0)
+    [1]
+    (loop [i n
+           x []]
+      (if (= i 0)
+        x
+        (recur (dec i) (-build-row x))))))
+
