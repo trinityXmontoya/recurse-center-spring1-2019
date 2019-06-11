@@ -66,7 +66,7 @@
 ;How? Devise some method for "scoring" a piece of English plaintext. Character frequency is a good metric. Evaluate each output and choose the one with the best score.
 
 (def character-frequency
-  "src: https://en.wikipedia.org/wiki/Letter_frequency"
+  "src: https://web.archive.org/web/20170918020907/http://www.data-compression.com/english.html"
   {\a		 0.0651738
    \b		 0.0124248
    \c		 0.0217339
