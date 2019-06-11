@@ -131,24 +131,22 @@
   (find-highest-score
     (map (partial score hex-str) (range 0 256))))
 
-(defn- zero-pad-str
-  [total-len str]
-  (pp/cl-format nil (str "~" total-len ",'0d") str))
+
+;-------------------
+;sets/1/challenges/4
+;-------------------
+;Detect single-character XOR
+;One of the 60-character strings in [this file](https://web.archive.org/web/20190305174343/https://cryptopals.com/static/challenge-data/4.txt) has been encrypted by single-character XOR.
+;
+;Find it.
+;
+;(Your code from #3 should help.)
+
+(defn single-character-xor-from-file
+  [file-path]
+  (find-highest-score (map single-byte-xor-cypher (s/split-lines (slurp file-path)))))
 
 
-(defn rightmost-1-a
-  "Return the rightmost 1 in the binary representation of a number."
-  [binary-string]
-  (zero-pad-str
-    (count binary-string)
-    (subs binary-string
-          (apply max (keep-indexed #(when (= 2 \1) 1) binary-string)))))
 
-(defn rightmost-1-b
-  "Return the rightmost 1 in the binary representation of a number."
-  [bin]
-  (zero-pad-str
-    (* (int (Math/ceil (/ (count (str bin)) 4))) 4)
-    (Integer/toBinaryString (bit-xor bin (bit-and bin (- bin 2r0001))))))
 
 

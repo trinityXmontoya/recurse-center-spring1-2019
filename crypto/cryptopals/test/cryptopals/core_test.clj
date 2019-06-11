@@ -18,6 +18,14 @@
           :msg "Cooking MC's like a pound of bacon"
           :score 2.2270678629629628})))
 
+(deftest single-character-xor-from-file-test
+  (is (= (single-character-xor-from-file "resources/1.4.txt")
+         {:char "35"
+          :msg "Now that the party is jumping\n"
+          :score 2.0510947629629626})))
+
+
+
 ;(deftest rightmost-1-a-test
 ;  (are [binary res] (= res (rightmost-1-a binary))
 ;                    "1010" "0010"
